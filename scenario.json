@@ -1,0 +1,47 @@
+{
+    "config": {
+        "name": "test",
+        "agentsperagency": 10,
+        "logging": true,
+        "mqtt": {
+            "active": true
+        },
+        "df": {
+            "active": true
+        },
+        "logger": {
+            "active": true,
+            "msg": true,
+            "app": true,
+            "status": true,
+            "debug": true
+        }
+    },
+    "imagegroups": [
+        {
+            "config": {
+                "image": "testclonemap3"
+            },
+            "agents": [
+                {
+                    "id": 0,
+                    "name": "",
+                    "type": "retailer",
+                    "subtype": "",
+                    "custom": "{\"agentId\":0,\"coordinates\":{\"x\":25.4,\"y\":46.0,\"z\":45.45},\"products\":{\"123\":{\"id\":\"123\",\"name\":\"Tomatenatural\",\"quantity\":25,\"healthRestoration\":10.0,\"price\":24.0},\"124\":{\"id\":\"124\",\"name\":\"kiwi\",\"quantity\":10,\"healthRestoration\":5.0,\"price\":34.0}}}"
+                },
+                {
+                    "id": 1,
+                    "name": "",
+                    "type": "buyer",
+                    "subtype": "",
+                    "custom": "{\"agentId\":1,\"incomeAmount\":5.0,\"healthReduction\":1.0,\"incomePeriodicity\":2000000000,\"healthReductionPeriodicity\":1000000000,\"currentBalance\":0.0,\"currentHealth\":50.0,\"coordinates\":{\"x\":5.0,\"y\":10.0,\"z\":10.0}}"
+                }
+            ]
+        }
+    ],
+    "graph": {
+        "node": null,
+        "edge": null
+    }
+}
