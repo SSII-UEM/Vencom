@@ -8,7 +8,8 @@ Deploy clonemap's core docker containers:
 
 ```cmd
 git clone https://git.rwth-aachen.de/acs/public/cloud/mas/clonemap.git "<folder>"
-"<folder>"\deployments\docker docker-compose up
+"<folder>"\deployments\docker docker-compose up -d #REM to start the containers
+"<folder>"\deployments\docker docker-compose down
 ```
 
 Build Vencom image and deploy docker container/s:
@@ -31,8 +32,6 @@ curl -X "POST" -d @scenario.json localhost:30009/api/clonemap/mas
 * Periodic behaviours introduce racing behaviours while reading/writing (concurrent) each agent properties
 
 * Coordinate distances aren't properly computed
-
-
 
 ## Future additions
 
