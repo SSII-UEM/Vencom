@@ -35,7 +35,7 @@
                     "name": "",
                     "type": "buyer",
                     "subtype": "",
-                    "custom": "{\"agentId\":1,\"incomeAmount\":5.0,\"healthReduction\":1.0,\"incomePeriodicity\":2000000000,\"healthReductionPeriodicity\":1000000000,\"currentBalance\":0.0,\"currentHealth\":50.0,\"coordinates\":{\"x\":5.0,\"y\":10.0,\"z\":10.0}}"
+                    "custom": "{\"agentId\":1,\"incomeAmount\":5.0,\"healthReduction\":1.0,\"incomePeriodicity\":1000000000,\"healthReductionPeriodicity\":1000000000,\"currentBalance\":200.0,\"currentHealth\":100.0,\"coordinates\":{\"x\":5.0,\"y\":10.0,\"z\":10.0}}"
                 }
             ]
         }

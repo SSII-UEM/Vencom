@@ -33,12 +33,10 @@ func task(ag *agency.Agent) (err error) {
 			id, data := ag.GetAgentID(), deserializeBuyerCustomData([]byte(ag.GetCustomData()))
 			agentsGlobalData.registerBuyerData(id, data)
 			configureBuyerBehaviour(ag)
-			fmt.Printf("Agent#%d data = %v\n", id, data)
 		} else {
 			id, data := ag.GetAgentID(), deserializeRetailerCustomData([]byte(ag.GetCustomData()))
 			agentsGlobalData.registerRetailerData(id, data)
 			configureRetailerBehaviour(ag)
-			fmt.Printf("Agent#%d data = %v\n", id, data)
 		}
 	}
 

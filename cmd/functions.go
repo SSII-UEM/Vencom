@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"git.rwth-aachen.de/acs/public/cloud/mas/clonemap/pkg/agency"
 	"git.rwth-aachen.de/acs/public/cloud/mas/clonemap/pkg/schemas"
+	"strconv"
 )
 
 func getRetailers(agent *agency.Agent) (retailersId []int) {
@@ -17,7 +17,7 @@ func getRetailers(agent *agency.Agent) (retailersId []int) {
 }
 
 func buyProduct(agent *agency.Agent, retailerId int, productId string, amount int) (boughtProducts []Product) {
-
+	boughtProducts = make([]Product, 0)
 	buyerData, _ := agentsGlobalData.getBuyerData(agent.GetAgentID())
 	transaction := &Transaction{
 		ProductId:       productId,
@@ -25,17 +25,21 @@ func buyProduct(agent *agency.Agent, retailerId int, productId string, amount in
 		Amount:          amount,
 	}
 	str, _ := json.Marshal(&transaction)
-	retailerResponse, _ := sendMessage(agent, retailerId, BUY_PRODUCT_PROTOCOL, schemas.FIPAPerfCallForProposal, string(str), true)
-	if retailerResponse.Performative == schemas.FIPAPerfAcceptProposal /*OK*/ {
-		json.Unmarshal([]byte(retailerResponse.Content), boughtProducts)
+	//retailerResponse, err := sendMessage(agent, retailerId, BUY_PRODUCT_PROTOCOL, schemas.FIPAPerfCallForProposal, string(str), true)
+	message, _ := agent.ACL.NewMessage(retailerId, BUY_PRODUCT_PROTOCOL, schemas.FIPAPerfCallForProposal, string(str))
+	agent.ACL.SendMessage(message)
+	response, _ := agent.ACL.RecvMessageWait()
+	agent.Logger.NewLog(app, strconv.Itoa(response.Performative), "")
+	if response.Performative == schemas.FIPAPerfAgree /*OK*/ {
+		var temp []Product
+		json.Unmarshal([]byte(response.Content), &temp)
+		boughtProducts = append(boughtProducts, temp...)
 	}
-
 	return
 }
 
 func sendMessage(localAgent *agency.Agent, remoteAgentId int, protocol int, performative int, content string, waitResponse bool) (message schemas.ACLMessage, err error) {
 	var sentMessage, returnedMessage schemas.ACLMessage
-	fmt.Printf("Sending message from %d to %d: %s\n", localAgent.GetAgentID(), remoteAgentId, content)
 	sentMessage, _ = localAgent.ACL.NewMessage(remoteAgentId, protocol, performative, content)
 	err = localAgent.ACL.SendMessage(sentMessage)
 
