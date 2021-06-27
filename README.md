@@ -33,6 +33,8 @@ curl -X "POST" -d @scenario.json localhost:30009/api/clonemap/mas
 
 * Coordinate distances aren't properly computed
 
+* Fronted module is having troubles to show logs
+
 ## Future additions
 
 * Products should have a lifespan to incentivate retailers to design better market strategies and buyers to eat them before others they own
@@ -44,3 +46,7 @@ curl -X "POST" -d @scenario.json localhost:30009/api/clonemap/mas
 * Retailers should also have the same capabilities as buyers. That means they should also need to consume products to survive.
 
 * Intelligence
+
+## Difficulties
+
+* Debugging is very difficult

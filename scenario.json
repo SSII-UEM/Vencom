@@ -20,7 +20,7 @@
     "imagegroups": [
         {
             "config": {
-                "image": "testclonemap3"
+                "image": "vencom"
             },
             "agents": [
                 {
@@ -28,7 +28,7 @@
                     "name": "",
                     "type": "retailer",
                     "subtype": "",
-                    "custom": "{\"agentId\":0,\"coordinates\":{\"x\":25.4,\"y\":46.0,\"z\":45.45},\"products\":{\"123\":{\"id\":\"123\",\"name\":\"Tomatenatural\",\"quantity\":25,\"healthRestoration\":10.0,\"price\":24.0},\"124\":{\"id\":\"124\",\"name\":\"kiwi\",\"quantity\":10,\"healthRestoration\":5.0,\"price\":34.0}}}"
+                    "custom": "{\"agentId\":0,\"coordinates\":{\"x\":25.4,\"y\":46.0,\"z\":45.45},\"products\":{\"123\":{\"id\":\"123\",\"name\":\"Tomate natural\",\"quantity\":25,\"healthRestoration\":10.0,\"price\":24.0},\"124\":{\"id\":\"124\",\"name\":\"kiwi\",\"quantity\":10,\"healthRestoration\":5.0,\"price\":34.0}}}"
                 },
                 {
                     "id": 1,

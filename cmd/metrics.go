@@ -6,6 +6,7 @@ import (
 	"sort"
 )
 
+//se hace el cómputo de la distancia entre dos coordenadas
 func computeDistance(agent *agency.Agent, agentId int) (distance float64) {
 	message, _ := sendMessage(agent, agentId, 0, schemas.FIPAPerfRequest, "", true)
 	if message.Performative == schemas.FIPAPerfAgree {
@@ -17,6 +18,7 @@ func computeDistance(agent *agency.Agent, agentId int) (distance float64) {
 	return
 }
 
+//se generan las métricas de los productos asociados a una lista de vendedores
 func generateProductMetricsFromRetailers(agent *agency.Agent, retailersId []int) (productsMetrics []ProductMetrics) {
 	//TODO: redo
 	productsMetrics = make([]ProductMetrics, 0)
@@ -34,6 +36,7 @@ func generateProductMetricsFromRetailers(agent *agency.Agent, retailersId []int)
 	return
 }
 
+//se ordenan las métricas en base a la distancia y al healthRestorationScore
 func sortProductMetrics(metrics []ProductMetrics) []ProductMetrics {
 	if len(metrics) > 0 {
 		sort.Slice(metrics, func(i,j int) bool {
